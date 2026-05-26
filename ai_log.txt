@@ -1,0 +1,429 @@
+> head(penguins)
+
+species island bill_len bill_dep flipper_len body_mass sex year
+
+1 Adelie Torgersen 39.1 18.7 181 3750 male 2007
+
+2 Adelie Torgersen 39.5 17.4 186 3800 female 2007
+
+3 Adelie Torgersen 40.3 18.0 195 3250 female 2007
+
+4 Adelie Torgersen NA NA NA NA <NA> 2007
+
+5 Adelie Torgersen 36.7 19.3 193 3450 female 2007
+
+6 Adelie Torgersen 39.3 20.6 190 3650 male 2007
+
+
+
+
+
+> tail(penguins)
+
+species island bill_len bill_dep flipper_len body_mass sex year
+
+339 Chinstrap Dream 45.7 17.0 195 3650 female 2009
+
+340 Chinstrap Dream 55.8 19.8 207 4000 male 2009
+
+341 Chinstrap Dream 43.5 18.1 202 3400 female 2009
+
+342 Chinstrap Dream 49.6 18.2 193 3775 male 2009
+
+343 Chinstrap Dream 50.8 19.0 210 4100 male 2009
+
+344 Chinstrap Dream 50.2 18.7 198 3775 female 2009
+
+
+
+> glimpse(penguins)
+
+Rows: 344
+
+Columns: 8
+
+$ species <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie…
+
+$ island <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
+
+$ bill_len <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8…
+
+$ bill_dep <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1…
+
+$ flipper_len <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182…
+
+$ body_mass <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300…
+
+$ sex <fct> male, female, female, NA, female, male, female, male, NA, NA, …
+
+$ year <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20…
+
+> 
+
+
+
+Note any interesting features of the data you observe in the output. one sentence for each 
+
+Based on the provided output, here are some interesting features of the Palmer Penguins dataset:
+
+Missing Data: Row 4 highlights that the dataset contains missing values (NA) across multiple physical measurements for certain observations.
+
+Structural Dimensions: The glimpse() output reveals a highly structured dataset consisting of exactly 344 rows and 8 distinct columns.
+
+Categorical Diversity: The data tracks three distinct species of penguins across multiple islands, with species, island, and sex properly stored as factor (<fct>) data types.
+
+Varying Body Metrics: There is a noticeable difference in body mass and bill dimensions even within the same species, as seen when comparing the smaller Adelie penguins to the larger Chinstrap measurements.
+
+Temporal Tracking: The dataset includes a year column indicating that the penguin observations were collected over a span of multiple years, including 2007 and 2009.
+
+Data Cleaning: Using drop_na(), create a tibble named penguins_bill that contains only the species, bill_len, and bill_dep columns, and removes rows with missing data in any of these columns. How many rows are left in the cleaned data frame?
+
+To create the penguins_bill tibble and clean the missing values using the tidyverse package in R, you can use the following code:
+
+R
+library(tidyverse)
+
+penguins_bill <- penguins |>
+  select(species, bill_len, bill_dep) |>
+  drop_na()
+
+nrow(penguins_bill)
+```
+There are exactly 342 rows left in the cleaned data frame.
+
+The original penguins dataset contains 344 observations. Since there are only 2 rows that have missing values (NA) for bill_len and bill_dep (which occur in the same two penguin records), dropping those rows leaves a total of 344−2=342 rows.
+
+Produce a histogram of bill_len across all penguins, with geom_rug() added along the bottom edge. Use the binwidth argument of geom_histogram() to set the bin width. Apply jittering and partial transparency to the rug so that individual penguins remain visible.
+
+To produce this plot in R using ggplot2, you can use the following code.
+
+Since geom_rug() displays individual data points as ticks along the axis, adding position_jitter() horizontally (adjusting width while keeping height = 0) prevents overlapping ticks (overplotting), and alpha controls the transparency.
+
+R
+library(ggplot2)
+
+ggplot(penguins_bill, aes(x = bill_len)) +
+  geom_histogram(binwidth = 2, color = "white") +
+  geom_rug(
+    aes(y = 0),
+    sides = "b",
+    alpha = 0.35,
+    position = position_jitter(width = 0.2, height = 0)
+  ) +
+  labs(
+    title = "Distribution of Penguin Bill Length",
+    x = "Bill length (mm)",
+    y = "Number of penguins",
+    caption = "Data source: Gorman et al. (2014)"
+  )
+```
+
+Explanation of key components:
+binwidth = 1: Sets the width of each histogram bar to represent 1 mm intervals of bill length. You can adjust this value to make the bins wider or narrower.
+
+sides = "b": Ensures that the rug plot lines are only drawn at the bottom edge of the plot.
+
+position = position_jitter(width = 0.2, height = 0): Applies horizontal jittering to the rug lines. This spreads out overlapping data points slightly along the X-axis so that individual penguins with identical measurements don't stack perfectly on top of each other.
+
+alpha = 0.4: Sets the partial transparency for the rug ticks, making denser regions appear darker and keeping individual points distinguishable.
+
+if there is 3 histograms, all the same data but different widths, 4,7, 10 which vversion would be used in a report and why
+
+In a professional report, the version with a bin width of 4 (or potentially 7, depending on how the data looks) would most likely be used. The version with a bin width of 10 would almost certainly be rejected.
+
+Here is the breakdown of why bin width selection matters and how to choose the right one for your report:
+
+1. The Verdict on the Three Options
+Width = 4: The Strongest Candidate
+Why: Bill lengths in the penguins dataset generally range from about 32 mm to 60 mm (a spread of roughly 28 mm). A bin width of 4 divides this range into about 7 distinct bins. This strikes a great balance: it provides enough granularity to show the shape of the data (such as whether it is bimodal or skewed) without making the plot look overly jagged.
+
+Width = 7: The "Macro" Alternative
+Why: This divides the data into only about 4 bins. While it simplifies the visual, it is on the edge of being too broad. It might be acceptable if your report's audience only needs a very high-level, simplified summary, but you risk smoothing out important details.
+
+Width = 10: The Flawed Option
+Why: A bin width of 10 is far too large for this dataset. It forces the entire data range into just 2 or 3 massive blocks. This completely hides the underlying distribution, masking features like data peaks, gaps, or the natural variations between penguin species.
+
+2. The Core Principle: The "Goldilocks" Rule
+Choosing a bin width for a report is about balancing oversmoothing and undersmoothing:
+
+Too Wide (Oversmoothed): When bins are too wide (like width = 10), you aggregate too much data together. This creates a "blocky" graph that hides the true structure, shapes, and patterns of the data.
+
+Too Narrow (Undersmoothed): If you went the other direction and chose a bin width of 0.1, the histogram would look like a jagged comb. You would end up plotting random noise and sampling variations rather than the actual trend.
+
+Just Right: The ideal bin width reveals the overall "signal" (the true distribution pattern) while filtering out the "noise" (minor individual variations).
+
+3. What to Look for When Choosing for a Report
+When finalizing the graph for your report, look closely at the shape the bin width creates. In the case of the Palmer Penguins dataset, the bill length distribution is actually bimodal (it has two distinct peaks) because different species have drastically different average bill sizes.
+
+A bin width of 4 preserves and highlights those two distinct peaks, which tells an interesting biological story.
+
+A bin width of 10 lumps them all together into a single, uninformative wall of data.
+
+Recommendation for your report: Generate all three, and select the finest width (width = 4) that still maintains a clean, continuous shape without gaps between every single bar.
+
+is 7 not a good choice?
+
+A bin width of 7 is a passable choice, but it is generally not the best choice for this specific dataset if you want your report to be highly informative.
+
+Here is exactly why a bin width of 7 falls short compared to a width of 4:
+
+1. It Smothers the "Hidden Story" (Bimodality)
+The most interesting feature of the penguins bill length data is that it is bimodal—meaning it has two distinct peaks. This happens because Gentoo and Chinstrap penguins have much longer bills on average than Adelie penguins.
+
+At width = 4: You can clearly see these two separate peaks forming.
+
+At width = 7: The bins are just wide enough that the valley between the two peaks gets completely filled in. It forces the data to look like one single, generic mound, masking the biological reality of the distinct species.
+
+2. The Total Range is Too Small for Sevens
+Because penguin bill lengths only span a total range of about 28 mm (from roughly 32 mm to 60 mm), look at what happens mathematically to your graph's structure:
+
+Bin Width (7)
+Total Range (28 mm)
+​
+ =4 bins
+Having only 4 bars on your histogram is usually too aggressive an aggregation for a report. It turns a fluid data distribution into a rough, blocky summary. A width of 4 gives you about 7 to 8 bars, which provides a much smoother and more accurate representation of the data's true shape.
+
+Summary Checklist for a Report
+If you are deciding between them for a final presentation, ask yourself these two questions:
+
+Does this width hide key features like gaps, clusters, or multiple peaks? (Width 7 does).
+
+Is the shape clean and easy to interpret at a glance? (Both 4 and 7 are clean, but 4 preserves the detail).
+
+For a rigorous data report, width = 4 remains the winner because it respects the scale of the underlying data.
+
+Beeswarm plots systematically offset points to reduce overlap while keeping each point near its true value. They can be created with geom_beeswarm() from the ggbeeswarm package. Because geom_beeswarm() was not covered in the lab preparatory materials, you may need to refer to the documentation at ?geom_beeswarm. Create a beeswarm plot of bill length on the x-axis by species on the y-axis. How does this plot compare to the jittered plot?
+
+R
+# Install the package if you haven't already: install.packages("ggbeeswarm")
+library(ggplot2)
+library(ggbeeswarm)
+library(tidyverse)
+
+# Create the beeswarm plot
+ggplot(penguins_bill, aes(x = bill_len, y = species)) +
+  geom_beeswarm(alpha = 0.6) +
+  labs(
+    title = "Bill Length by Species Using Beeswarm",
+    x = "Bill length (mm)",
+    y = "Species",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+The beeswarm plot shows the bill length distribution for each species while reducing overlap between points. Compared with the jitter plot, the points are arranged more systematically, so dense regions are easier to identify. Adelie penguins are mostly concentrated at shorter bill lengths, roughly around 35–43 mm. Gentoo penguins are mostly concentrated around the mid-40s to low-50s, while Chinstrap penguins are also mostly in the mid-40s to low-50s. This confirms that bill length separates Adelie from the other two species fairly well, but Gentoo and Chinstrap still overlap, so bill length alone cannot fully distinguish all three species.
+
+State one advantage and one disadvantage of using a beeswarm plot rather than a jitter plot
+
+One Advantage
+One advantage of the beeswarm plot is that it shows the density of bill lengths more clearly than the jitter plot. In the beeswarm plot, the points are arranged systematically, so it is easier to see where many penguins are concentrated, especially for Adelie around the shorter bill lengths and Gentoo around the mid-40s to low-50s. 
+
+One Disadvantage
+One disadvantage is that the beeswarm plot can look more visually packed and less familiar to readers than a jitter plot. The jitter plot is simpler to understand, but its random spreading makes the pattern look less organized.
+
+ Return to the histogram framing from Section 3.2(a), but now produce a version of the histogram that is faceted by species using facet_wrap(). Add two layers on top of each facet:
+
+A jittered rug along the bottom, as in Section 3.2(a), but only for the data in the facet.
+
+A vertical “anchor” line at the mean bill length, averaged over all penguins regardless of species, with geom_vline(). This line should appear at the same x-coordinate in every facet.
+
+To create the faceted histogram with a global mean anchor line and facet-specific jittered rugs, you can use the following R code.
+
+To ensure the vertical line reflects the mean of all penguins combined—rather than calculating a separate mean for each facet—we calculate the global average beforehand and pass it as a static numeric value to xintercept.
+
+R
+library(ggplot2)
+library(tidyverse)
+
+set.seed(3107)
+
+overall_mean_bill_len <- mean(penguins_bill$bill_len)
+
+ggplot(penguins_bill, aes(x = bill_len)) +
+  geom_histogram(
+    binwidth = 7,
+    boundary = 0,
+    fill = "grey75",
+    color = "white"
+  ) +
+  geom_rug(
+    aes(y = 0),
+    sides = "b",
+    alpha = 0.18,
+    position = position_jitter(width = 0.08, height = 0)
+  ) +
+  geom_vline(
+    xintercept = overall_mean_bill_len,
+    linetype = "dashed"
+  ) +
+  facet_wrap(~species) +
+  labs(
+    title = "Bill Length Distribution by Species",
+    x = "Bill length (mm)",
+    y = "Number of penguins",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+Why this approach works:
+The faceted histogram shows that the overall bill-length distribution is made up of different species-specific distributions. Adelie penguins are mostly concentrated at shorter bill lengths, with most observations below the overall mean line. Chinstrap and Gentoo penguins generally have longer bill lengths, with many observations around the mid-40s to low-50s. The dashed vertical line shows the overall mean bill length across all penguins and provides a common reference point across the three facets. This helps explain why the ungrouped histogram was not unimodal: it combined species with different bill-length distributions.
+Produce a violin plot of bill length on the x-axis by species on the y-axis, with a narrow box plot drawn inside each violin.
+
+To create a violin plot with an embedded, narrow box plot in R using ggplot2, you can use the following code:
+
+R
+library(ggplot2)
+library(tidyverse)
+
+ggplot(penguins_bill, aes(x = bill_len, y = species)) +
+  geom_violin(
+    fill = "grey85",
+    color = "grey40"
+  ) +
+  geom_boxplot(
+    width = 0.15,
+    fill = "white",
+    outlier.alpha = 0.5
+  ) +
+  labs(
+    title = "Bill Length by Species Using Violin and Box Plot",
+    x = "Bill length (mm)",
+    y = "Species",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+Key adjustments for this layout:
+The violin-with-box plot shows that Adelie penguins have noticeably shorter bill lengths than Chinstrap and Gentoo penguins. The Adelie distribution is concentrated mostly around the high-30s to low-40s mm range, while Chinstrap and Gentoo are shifted further right, mostly around the mid-40s to low-50s mm range. The box plots show that the median bill length for Adelie is lower than the medians for Chinstrap and Gentoo. The violin shapes also show that Chinstrap and Gentoo have overlapping bill-length distributions, meaning bill length alone does not clearly separate those two species. Gentoo also has a long right tail with a very high bill-length value near 60 mm, suggesting a possible extreme value or outlier.
+
+Create a histogram of bill_dep across all penguins, with a jittered rug along the bottom edge. How does the distribution of bill depth compare to that of bill length?
+
+R
+library(ggplot2)
+library(tidyverse)
+
+# Create the histogram for bill depth with a jittered rug plot
+set.seed(3107)
+
+ggplot(penguins_bill, aes(x = bill_dep)) +
+  geom_histogram(
+    binwidth = 0.5,
+    boundary = 0,
+    fill = "grey75",
+    color = "white"
+  ) +
+  geom_rug(
+    aes(y = 0),
+    sides = "b",
+    alpha = 0.18,
+    position = position_jitter(width = 0.03, height = 0)
+  ) +
+  labs(
+    title = "Distribution of Penguin Bill Depth",
+    x = "Bill depth (mm)",
+    y = "Number of penguins",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+Distribution Comparison: Bill Depth vs. Bill Length
+The ungrouped bill-depth histogram shows that bill depth ranges roughly from about 13 mm to 21 mm. The distribution is not perfectly unimodal because there are several visible clusters, especially around 14–15 mm and 17–19 mm. Most penguins appear to have bill depths around 17–19 mm, where the tallest bars are located. Compared with the bill-length histogram, bill depth has a narrower numerical range, but it still shows signs that the data may contain different species groups. The rug marks along the bottom show the individual penguin observations and confirm that many values are concentrated in the middle of the range.
+Create a faceted histogram of bill depth by species, with a jittered rug and a vertical “anchor” line at the overall bill-depth mean. How does the distribution of bill depth differ across species?
+
+R
+library(ggplot2)
+library(tidyverse)
+
+set.seed(3107)
+
+overall_mean_bill_dep <- mean(penguins_bill$bill_dep)
+
+ggplot(penguins_bill, aes(x = bill_dep)) +
+  geom_histogram(
+    binwidth = 0.5,
+    boundary = 0,
+    fill = "grey75",
+    color = "white"
+  ) +
+  geom_rug(
+    aes(y = 0),
+    sides = "b",
+    alpha = 0.18,
+    position = position_jitter(width = 0.03, height = 0)
+  ) +
+  geom_vline(
+    xintercept = overall_mean_bill_dep,
+    linetype = "dashed"
+  ) +
+  facet_wrap(~species) +
+  labs(
+    title = "Bill Depth Distribution by Species",
+    x = "Bill depth (mm)",
+    y = "Number of penguins",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+How Bill Depth Differs Across Species
+The faceted histogram shows that bill depth differs clearly across species. Gentoo penguins have the shallowest bill depths, with most values concentrated below the overall mean line and mostly around 14–16 mm. Adelie penguins have deeper bills, with most values around 17–19.5 mm and many observations above the overall mean. Chinstrap penguins also have relatively deep bills, mostly around 17–20 mm, and they overlap more with Adelie than with Gentoo. This suggests that bill depth is especially useful for separating Gentoo from Adelie and Chinstrap, but it does not separate Adelie and Chinstrap as clearly.
+With reference to the visualizations created for bill length and bill depth , identify which species can be separated by each measurement. Do the two measurements separate the same or different species?
+
+Based on the visualizations, the two measurements separate completely different species. Each metric acts as a distinct taxonomic key, meaning you cannot rely on just one measurement to identify all three species.
+
+Here is how the species break down by measurement:
+
+Bill length and bill depth separate the penguin species in different ways. From the bill-length visualizations in Section 3.2(e–j), Adelie penguins are the easiest to separate because they generally have shorter bill lengths than Chinstrap and Gentoo penguins. However, Chinstrap and Gentoo overlap quite a lot in bill length, so bill length alone does not clearly separate those two species.
+
+From the bill-depth histogram in Section 3.3(b), Gentoo penguins are the easiest to separate because they generally have shallower bill depths than Adelie and Chinstrap penguins. Adelie and Chinstrap have deeper bill depths and overlap more with each other. Therefore, the two measurements do not separate exactly the same species: bill length mainly separates Adelie from the others, while bill depth mainly separates Gentoo from the others.
+
+Where would you like to take this penguin analysis next? We can jump into modeling, look at scatter plots to see how those bill measurements interact simultaneously, or check out another variable like body mass.
+
+Using geom_point(), create a scatter plot with bill_len on the x-axis and bill_dep on the y-axis. Do not map species to color yet. Add the pooled linear trend across all penguins, regardless of species, using geom_smooth(method = "lm").
+
+To create a scatter plot of bill length versus bill depth with a single pooled linear trend line across all observations, you can use the following R code:
+
+R
+library(ggplot2)
+library(tidyverse)
+
+ggplot(penguins_bill, aes(x = bill_len, y = bill_dep)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(
+    title = "Bill Depth versus Bill Length",
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    caption = "Data source: Gorman et al. (2014)"
+  ) +
+  theme_minimal()
+```
+Key Details:
+The ungrouped scatter plot shows the relationship between bill length and bill depth for all penguins combined. Each point represents one penguin, and the blue regression line shows the pooled linear trend across all species. The line slopes downward, suggesting that when species is ignored, penguins with longer bill lengths appear to have lower bill depths. However, the points seem to form several clusters, so the pooled trend may be hiding species-level patterns.
+
+To find the number of hidden overlapping points and the maximum stack size, we can group and count the occurrences of unique (bill_len, bill_dep) coordinate pairs.
+
+Here is the R code to compute both metrics:
+
+R
+library(tidyverse)
+
+overlap_counts <- penguins_bill |>
+  count(bill_len, bill_dep)
+
+hidden_points <- overlap_counts |>
+  summarize(hidden = sum(n - 1)) |>
+  pull(hidden)
+
+max_stack <- overlap_counts |>
+  summarize(max_stack = max(n)) |>
+  pull(max_stack)
+
+hidden_points
+max_stack
+```
+There are 4 points hidden by exact overlap. The maximum number of penguins stacked at a single (bill_len, bill_dep) coordinate is 2. This means exact duplicate coordinates exist, but the amount of exact overlap is quite small compared with the full cleaned dataset.
+
+Exact overlap is not the only cause of overplotting. Even if two points do not have exactly the same bill length and bill depth, they can still be very close together visually, especially in dense regions of the scatter plot. This can make the plot look crowded and can make it difficult to judge where most observations are concentrated.
+Maximum number of rows stacked at any single position: 3 (The highest density peak for a single exact coordinate pair contains 3 overlapping penguin records.)
+
+
