@@ -608,4 +608,13 @@ Our findings are consistent with what Horst, Hill and Gorman (2022) report. They
 
 # Reflection on AI Usage
 
-Our team used Gemini as the single chat based AI tool for this lab. We used it only through the chat interface and did not allow it to directly edit project files, run the final submission, or generate undocumented side conversations. The AI interaction was recorded in a separate verbatim log file named `ai_log.txt`. One of our AI response gave us a reasoning that was overcomplicated, which resulted in the team spending far longer on the question to dicuss on it.                         
+Our team used Gemini as the single chat based AI tool for this lab. We used it only through the chat interface and did not allow it to directly edit project files, run the final submission, or generate undocumented side conversations. The AI interaction was recorded in a separate verbatim log file named `ai_log.txt`. One of our AI response gave us a reasoning that was overcomplicated, which resulted in the team spending far longer on the question to dicuss on it. 
+
+# Team Roles and Contributions
+
+- **Coder(Travis):** Wrote and maintained the main QMD file, ensured that the code chunks ran in order, and checked that the QMD rendered successfully.
+- **Navigator(Weehan):** Read the task requirements and guided the team through the required sections in order.
+- **Verifier(Jie Yung):** Checked the cleaned data, missing values, joins, row order, and per-capita calculation using independent checks.
+- **Constructive Critic(Daniel):** Reviewed the QMD for clarity, structure, formatting, and whether the submission matched the lab requirements.
+- **AI Liaison(Marc):** Interacted with the AI tool, recorded the AI log, and checked whether AI suggestions were useful or needed correction.
+- **Reporter(Nico):** Wrote and improved the explanatory text for the final QMD.
