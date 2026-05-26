@@ -261,7 +261,7 @@ One advantage of the beeswarm plot is that it shows the density of bill lengths 
 ### Disadvantage
 One disadvantage is that the beeswarm plot can look more visually packed and less familiar to readers than a jitter plot. The jitter plot is simpler to understand, but its random spreading makes the pattern look less organized.
 
-## Faceted-Bil-Length Hitogram
+## Faceted-Bil-Length Histogram
 ```{r}
 #| label: faceted-bill-length-histogram
 #| message: true
@@ -605,3 +605,7 @@ Bill length and bill depth can help distinguish the three Pygoscelis penguin spe
 
 ## Verifier Task
 Our findings are consistent with what Horst, Hill and Gorman (2022) report. They introduced the Palmer Penguins dataset specifically as a teaching example that illustrates Simpson's Paradox, and they highlight that the negative pooled correlation between bill length and bill depth (~−0.23) reverses to a positive correlation within each species — exactly what we observed. They also note that the three species form reasonably distinct clusters in the two-dimensional bill space, which matches our conclusion that both measurements are needed together to approach full separation.
+
+# Reflection on AI Usage
+
+Our team used Gemini as the single chat based AI tool for this lab. We used it only through the chat interface and did not allow it to directly edit project files, run the final submission, or generate undocumented side conversations. The AI interaction was recorded in a separate verbatim log file named `ai_log.txt`. One of our AI response gave us a reasoning that was overcomplicated, which resulted in the team spending far longer on the question to dicuss on it.                         
