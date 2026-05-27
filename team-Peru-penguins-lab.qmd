@@ -1,14 +1,15 @@
 ---
 title: "team-Peru-penguins-lab"
 format: html
+toc: true
+number-sections: true
 ---
 
 ```{r}
-#| label: setup
+#| label: library-setup
 #| message: false
 library(tidyverse)
 library(ggbeeswarm)
-dim(penguins)
 ```
 
 # Data Preparation

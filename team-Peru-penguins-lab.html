@@ -76,10 +76,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link active" data-scroll-target="#data-preparation"><span class="header-section-number">1</span> Data Preparation</a>
+  <ul class="collapse">
+  <li><a href="#size-of-the-dataset" id="toc-size-of-the-dataset" class="nav-link" data-scroll-target="#size-of-the-dataset"><span class="header-section-number">1.1</span> Size of the Dataset</a></li>
+  <li><a href="#preliminary-exploration" id="toc-preliminary-exploration" class="nav-link" data-scroll-target="#preliminary-exploration"><span class="header-section-number">1.2</span> Preliminary Exploration</a>
+  <ul class="collapse">
+  <li><a href="#using-head" id="toc-using-head" class="nav-link" data-scroll-target="#using-head"><span class="header-section-number">1.2.1</span> Using head()</a></li>
+  <li><a href="#using-tail" id="toc-using-tail" class="nav-link" data-scroll-target="#using-tail"><span class="header-section-number">1.2.2</span> Using tail()</a></li>
+  <li><a href="#using-glimpse" id="toc-using-glimpse" class="nav-link" data-scroll-target="#using-glimpse"><span class="header-section-number">1.2.3</span> Using glimpse()</a></li>
+  </ul></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning"><span class="header-section-number">1.3</span> Data Cleaning</a></li>
+  <li><a href="#verifier-task" id="toc-verifier-task" class="nav-link" data-scroll-target="#verifier-task"><span class="header-section-number">1.4</span> Verifier Task</a></li>
+  </ul></li>
+  <li><a href="#distribution-of-bill-length" id="toc-distribution-of-bill-length" class="nav-link" data-scroll-target="#distribution-of-bill-length"><span class="header-section-number">2</span> Distribution of Bill Length</a>
+  <ul class="collapse">
+  <li><a href="#ungrouped-bill-length-histogram" id="toc-ungrouped-bill-length-histogram" class="nav-link" data-scroll-target="#ungrouped-bill-length-histogram"><span class="header-section-number">2.1</span> Ungrouped Bill-Length Histogram</a>
+  <ul class="collapse">
+  <li><a href="#verifier-task-1" id="toc-verifier-task-1" class="nav-link" data-scroll-target="#verifier-task-1"><span class="header-section-number">2.1.1</span> Verifier Task</a></li>
+  </ul></li>
+  <li><a href="#bin-width" id="toc-bin-width" class="nav-link" data-scroll-target="#bin-width"><span class="header-section-number">2.2</span> Bin Width</a>
+  <ul class="collapse">
+  <li><a href="#bin-width-4" id="toc-bin-width-4" class="nav-link" data-scroll-target="#bin-width-4"><span class="header-section-number">2.2.1</span> Bin Width 4</a></li>
+  <li><a href="#bin-width-10" id="toc-bin-width-10" class="nav-link" data-scroll-target="#bin-width-10"><span class="header-section-number">2.2.2</span> Bin width 10</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion"><span class="header-section-number">2.2.3</span> Discussion</a></li>
+  </ul></li>
+  <li><a href="#histogram-interpretation" id="toc-histogram-interpretation" class="nav-link" data-scroll-target="#histogram-interpretation"><span class="header-section-number">2.3</span> Histogram Interpretation</a></li>
+  <li><a href="#raw-point-plot-by-species" id="toc-raw-point-plot-by-species" class="nav-link" data-scroll-target="#raw-point-plot-by-species"><span class="header-section-number">2.4</span> Raw Point Plot by Species</a>
+  <ul class="collapse">
+  <li><a href="#observation" id="toc-observation" class="nav-link" data-scroll-target="#observation"><span class="header-section-number">2.4.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#jitter-plot" id="toc-jitter-plot" class="nav-link" data-scroll-target="#jitter-plot"><span class="header-section-number">2.5</span> Jitter Plot</a>
+  <ul class="collapse">
+  <li><a href="#observation-1" id="toc-observation-1" class="nav-link" data-scroll-target="#observation-1"><span class="header-section-number">2.5.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#beeswarm-plot" id="toc-beeswarm-plot" class="nav-link" data-scroll-target="#beeswarm-plot"><span class="header-section-number">2.6</span> Beeswarm Plot</a>
+  <ul class="collapse">
+  <li><a href="#observation-2" id="toc-observation-2" class="nav-link" data-scroll-target="#observation-2"><span class="header-section-number">2.6.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#jitter-versus-beeswarm" id="toc-jitter-versus-beeswarm" class="nav-link" data-scroll-target="#jitter-versus-beeswarm"><span class="header-section-number">2.7</span> Jitter Versus Beeswarm</a>
+  <ul class="collapse">
+  <li><a href="#advantage" id="toc-advantage" class="nav-link" data-scroll-target="#advantage"><span class="header-section-number">2.7.1</span> Advantage</a></li>
+  <li><a href="#disadvantage" id="toc-disadvantage" class="nav-link" data-scroll-target="#disadvantage"><span class="header-section-number">2.7.2</span> Disadvantage</a></li>
+  </ul></li>
+  <li><a href="#faceted-bil-length-histogram" id="toc-faceted-bil-length-histogram" class="nav-link" data-scroll-target="#faceted-bil-length-histogram"><span class="header-section-number">2.8</span> Faceted-Bil-Length Histogram</a>
+  <ul class="collapse">
+  <li><a href="#observation-3" id="toc-observation-3" class="nav-link" data-scroll-target="#observation-3"><span class="header-section-number">2.8.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#violin-with-box-plot" id="toc-violin-with-box-plot" class="nav-link" data-scroll-target="#violin-with-box-plot"><span class="header-section-number">2.9</span> Violin-With-Box Plot</a>
+  <ul class="collapse">
+  <li><a href="#observation-4" id="toc-observation-4" class="nav-link" data-scroll-target="#observation-4"><span class="header-section-number">2.9.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#why-combine-violin-and-box-plots" id="toc-why-combine-violin-and-box-plots" class="nav-link" data-scroll-target="#why-combine-violin-and-box-plots"><span class="header-section-number">2.10</span> Why Combine Violin and Box Plots</a></li>
+  </ul></li>
+  <li><a href="#distribution-of-bill-depth" id="toc-distribution-of-bill-depth" class="nav-link" data-scroll-target="#distribution-of-bill-depth"><span class="header-section-number">3</span> Distribution of Bill Depth</a>
+  <ul class="collapse">
+  <li><a href="#ungrouped-bill-depth-histogram" id="toc-ungrouped-bill-depth-histogram" class="nav-link" data-scroll-target="#ungrouped-bill-depth-histogram"><span class="header-section-number">3.1</span> Ungrouped Bill-Depth Histogram</a>
+  <ul class="collapse">
+  <li><a href="#how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length" id="toc-how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length" class="nav-link" data-scroll-target="#how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length"><span class="header-section-number">3.1.1</span> How does the distribution of bill depth compare to that of bill length</a></li>
+  </ul></li>
+  <li><a href="#faceted-bill-depth-histogram" id="toc-faceted-bill-depth-histogram" class="nav-link" data-scroll-target="#faceted-bill-depth-histogram"><span class="header-section-number">3.2</span> Faceted Bill-Depth Histogram</a>
+  <ul class="collapse">
+  <li><a href="#how-does-the-distribution-of-bill-depth-differ-across-species" id="toc-how-does-the-distribution-of-bill-depth-differ-across-species" class="nav-link" data-scroll-target="#how-does-the-distribution-of-bill-depth-differ-across-species"><span class="header-section-number">3.2.1</span> How does the distribution of bill depth differ across species?</a></li>
+  </ul></li>
+  <li><a href="#comparison-of-bill-length-and-bill-depth-distributions" id="toc-comparison-of-bill-length-and-bill-depth-distributions" class="nav-link" data-scroll-target="#comparison-of-bill-length-and-bill-depth-distributions"><span class="header-section-number">3.3</span> Comparison of Bill-Length and Bill-Depth Distributions</a></li>
+  <li><a href="#verifier-task-2" id="toc-verifier-task-2" class="nav-link" data-scroll-target="#verifier-task-2"><span class="header-section-number">3.4</span> Verifier Task</a></li>
+  </ul></li>
+  <li><a href="#birate-view-bill-depth-versus-bill-length" id="toc-birate-view-bill-depth-versus-bill-length" class="nav-link" data-scroll-target="#birate-view-bill-depth-versus-bill-length"><span class="header-section-number">4</span> Birate View: Bill Depth Versus Bill Length</a>
+  <ul class="collapse">
+  <li><a href="#ungrouped-scatter-plot" id="toc-ungrouped-scatter-plot" class="nav-link" data-scroll-target="#ungrouped-scatter-plot"><span class="header-section-number">4.1</span> Ungrouped Scatter Plot</a>
+  <ul class="collapse">
+  <li><a href="#observation-5" id="toc-observation-5" class="nav-link" data-scroll-target="#observation-5"><span class="header-section-number">4.1.1</span> Observation</a></li>
+  </ul></li>
+  <li><a href="#interpretation-of-the-pooled-hrend" id="toc-interpretation-of-the-pooled-hrend" class="nav-link" data-scroll-target="#interpretation-of-the-pooled-hrend"><span class="header-section-number">4.2</span> Interpretation Of The Pooled Hrend</a></li>
+  <li><a href="#exact-overplotting" id="toc-exact-overplotting" class="nav-link" data-scroll-target="#exact-overplotting"><span class="header-section-number">4.3</span> Exact Overplotting</a>
+  <ul class="collapse">
+  <li><a href="#discussion-1" id="toc-discussion-1" class="nav-link" data-scroll-target="#discussion-1"><span class="header-section-number">4.3.1</span> Discussion</a></li>
+  <li><a href="#verifier-task-3" id="toc-verifier-task-3" class="nav-link" data-scroll-target="#verifier-task-3"><span class="header-section-number">4.3.2</span> Verifier Task</a></li>
+  </ul></li>
+  <li><a href="#mitigation-of-overplotting" id="toc-mitigation-of-overplotting" class="nav-link" data-scroll-target="#mitigation-of-overplotting"><span class="header-section-number">4.4</span> Mitigation Of Overplotting</a></li>
+  <li><a href="#assessment-of-scatter-plot-variants" id="toc-assessment-of-scatter-plot-variants" class="nav-link" data-scroll-target="#assessment-of-scatter-plot-variants"><span class="header-section-number">4.5</span> Assessment of Scatter Plot Variants</a></li>
+  <li><a href="#grouped-scatter-plot" id="toc-grouped-scatter-plot" class="nav-link" data-scroll-target="#grouped-scatter-plot"><span class="header-section-number">4.6</span> Grouped Scatter Plot</a>
+  <ul class="collapse">
+  <li><a href="#observation-6" id="toc-observation-6" class="nav-link" data-scroll-target="#observation-6"><span class="header-section-number">4.6.1</span> Observation</a></li>
+  <li><a href="#verifier-task-4" id="toc-verifier-task-4" class="nav-link" data-scroll-target="#verifier-task-4"><span class="header-section-number">4.6.2</span> Verifier Task</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#summarize-the-insights-gained" id="toc-summarize-the-insights-gained" class="nav-link" data-scroll-target="#summarize-the-insights-gained"><span class="header-section-number">5</span> Summarize The Insights Gained</a>
+  <ul class="collapse">
+  <li><a href="#verifier-task-5" id="toc-verifier-task-5" class="nav-link" data-scroll-target="#verifier-task-5"><span class="header-section-number">5.1</span> Verifier Task</a></li>
+  </ul></li>
+  <li><a href="#reflection-on-ai-usage" id="toc-reflection-on-ai-usage" class="nav-link" data-scroll-target="#reflection-on-ai-usage"><span class="header-section-number">6</span> Reflection on AI Usage</a></li>
+  <li><a href="#team-roles-and-contributions" id="toc-team-roles-and-contributions" class="nav-link" data-scroll-target="#team-roles-and-contributions"><span class="header-section-number">7</span> Team Roles and Contributions</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -103,30 +201,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 344   8</code></pre>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<section id="data-preparation" class="level1">
-<h1>Data Preparation</h1>
+<section id="data-preparation" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data Preparation</h1>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 344   8</code></pre>
 </div>
 </div>
-<section id="size-of-the-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="size-of-the-dataset">Size of the Dataset</h2>
+<section id="size-of-the-dataset" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="size-of-the-dataset"><span class="header-section-number">1.1</span> Size of the Dataset</h2>
 <p>The data frame has 344 rows and 8 columns.</p>
 </section>
-<section id="preliminary-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="preliminary-exploration">Preliminary Exploration</h2>
-<section id="using-head" class="level3">
-<h3 class="anchored" data-anchor-id="using-head">Using head()</h3>
+<section id="preliminary-exploration" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="preliminary-exploration"><span class="header-section-number">1.2</span> Preliminary Exploration</h2>
+<section id="using-head" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="using-head"><span class="header-section-number">1.2.1</span> Using head()</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  species    island bill_len bill_dep flipper_len body_mass    sex year
 1  Adelie Torgersen     39.1     18.7         181      3750   male 2007
@@ -139,10 +233,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The head() output shows the first six rows of the penguins dataset. The first penguins are from the Adelie species on Torgersen island, and the dataset includes measurements such as bill length, bill depth, flipper length, body mass, sex, and year.</p>
 </section>
-<section id="using-tail" class="level3">
-<h3 class="anchored" data-anchor-id="using-tail">Using tail()</h3>
+<section id="using-tail" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="using-tail"><span class="header-section-number">1.2.2</span> Using tail()</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      species island bill_len bill_dep flipper_len body_mass    sex year
 339 Chinstrap  Dream     45.7     17.0         195      3650 female 2009
@@ -155,10 +249,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The tail() output shows the last six rows, which are Chinstrap penguins from Dream island. This suggests that the dataset is arranged by species and/or island rather than randomly mixed.</p>
 </section>
-<section id="using-glimpse" class="level3">
-<h3 class="anchored" data-anchor-id="using-glimpse">Using glimpse()</h3>
+<section id="using-glimpse" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="using-glimpse"><span class="header-section-number">1.2.3</span> Using glimpse()</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(penguins)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 344
 Columns: 8
@@ -175,55 +269,55 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <p>The glimpse() output shows that the dataset has 344 rows and 8 columns. Some variables are categorical, such as species, island, and sex, while others are numeric, such as bill_len, bill_dep, flipper_len, and body_mass. There are also missing values, for example in row 4 where bill length, bill depth, flipper length, body mass, and sex are missing.</p>
 </section>
 </section>
-<section id="data-cleaning" class="level2">
-<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<section id="data-cleaning" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-cleaning"><span class="header-section-number">1.3</span> Data Cleaning</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_len, bill_dep) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(penguins_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, bill_len, bill_dep) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(penguins_bill)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 342</code></pre>
 </div>
 </div>
 <p>There are 342 rows left in the data frame as 2 rows were removed due to having NA data.</p>
 </section>
-<section id="verifier-task" class="level2">
-<h2 class="anchored" data-anchor-id="verifier-task">Verifier Task</h2>
+<section id="verifier-task" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="verifier-task"><span class="header-section-number">1.4</span> Verifier Task</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rows_removed <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.na</span>(bill_len) <span class="sc">|</span> <span class="fu">is.na</span>(bill_dep) <span class="sc">|</span> <span class="fu">is.na</span>(species)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>rows_removed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>rows_removed <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">is.na</span>(bill_len) <span class="sc">|</span> <span class="fu">is.na</span>(bill_dep) <span class="sc">|</span> <span class="fu">is.na</span>(species)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>rows_removed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="distribution-of-bill-length" class="level1">
-<h1>Distribution of Bill Length</h1>
-<section id="ungrouped-bill-length-histogram" class="level2">
-<h2 class="anchored" data-anchor-id="ungrouped-bill-length-histogram">Ungrouped Bill-Length Histogram</h2>
+<section id="distribution-of-bill-length" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Distribution of Bill Length</h1>
+<section id="ungrouped-bill-length-histogram" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="ungrouped-bill-length-histogram"><span class="header-section-number">2.1</span> Ungrouped Bill-Length Histogram</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.35</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Length"</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.35</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Length"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -232,11 +326,11 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="verifier-task-1" class="level3">
-<h3 class="anchored" data-anchor-id="verifier-task-1">Verifier Task</h3>
+<section id="verifier-task-1" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="verifier-task-1"><span class="header-section-number">2.1.1</span> Verifier Task</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bill_range <span class="ot">&lt;-</span> <span class="fu">range</span>(penguins_bill<span class="sc">$</span>bill_len)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>bill_range</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>bill_range <span class="ot">&lt;-</span> <span class="fu">range</span>(penguins_bill<span class="sc">$</span>bill_len)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>bill_range</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 32.1 59.6</code></pre>
 </div>
@@ -244,10 +338,36 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <p>The shortest bill is&nbsp;32.1 mm&nbsp;and the longest is&nbsp;59.6 mm. The histogram covers this full range — nothing is cut off at either end.</p>
 </section>
 </section>
-<section id="bin-width" class="level2">
-<h2 class="anchored" data-anchor-id="bin-width">Bin Width</h2>
-<section id="bin-width-4" class="level3">
-<h3 class="anchored" data-anchor-id="bin-width-4">Bin Width 4</h3>
+<section id="bin-width" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="bin-width"><span class="header-section-number">2.2</span> Bin Width</h2>
+<section id="bin-width-4" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="bin-width-4"><span class="header-section-number">2.2.1</span> Bin Width 4</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.35</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Length"</span>,</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="team-Peru-penguins-lab_files/figure-html/bill-length-histogram-width-4-1.png" class="img-fluid figure-img" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bin-width-10" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="bin-width-10"><span class="header-section-number">2.2.2</span> Bin width 10</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
@@ -266,59 +386,33 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="team-Peru-penguins-lab_files/figure-html/bill-length-histogram-width-4-1.png" class="img-fluid figure-img" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="bin-width-10" class="level3">
-<h3 class="anchored" data-anchor-id="bin-width-10">Bin width 10</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.35</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Length"</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
 <p><img src="team-Peru-penguins-lab_files/figure-html/bill-length-histogram-width-10-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="discussion" class="level3">
-<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<section id="discussion" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="discussion"><span class="header-section-number">2.2.3</span> Discussion</h3>
 <p>We compared histograms using 4 mm, 7 mm, and 10 mm bin widths. The 4 mm bin width shows more detail and still reveals that the bill-length distribution is not unimodal, but it has more small fluctuations between neighbouring bins. The 10 mm bin width is too coarse and wide, making the distribution look overly simplified. We prefer the 7 mm bin width for the report because it gives a cleaner and more presentable overall shape while still showing that the distribution contains more than one cluster. This makes it easier for readers to understand the main pattern without being distracted by too much bin-level noise.</p>
 </section>
 </section>
-<section id="histogram-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="histogram-interpretation">Histogram Interpretation</h2>
+<section id="histogram-interpretation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="histogram-interpretation"><span class="header-section-number">2.3</span> Histogram Interpretation</h2>
 <p>The bill-length distribution is not unimodal because the dataset combines multiple penguin species. Each species has a different typical bill length, so pooling them together creates several clusters instead of one single peak. This suggests that species is an important grouping variable and should not be ignored when interpreting bill length.</p>
 </section>
-<section id="raw-point-plot-by-species" class="level2">
-<h2 class="anchored" data-anchor-id="raw-point-plot-by-species">Raw Point Plot by Species</h2>
+<section id="raw-point-plot-by-species" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="raw-point-plot-by-species"><span class="header-section-number">2.4</span> Raw Point Plot by Species</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Raw Points"</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Raw Points"</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -327,29 +421,29 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation" class="level3">
-<h3 class="anchored" data-anchor-id="observation">Observation</h3>
+<section id="observation" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="observation"><span class="header-section-number">2.4.1</span> Observation</h3>
 <p>Using geom_point() with the default settings, the points for each species appear on three horizontal rows because species is a categorical variable. Many points overlap or are very close together, especially where many penguins have similar bill lengths. As a result, the plot shows the approximate range of bill lengths for each species, but it does not clearly show the density of points along each row. This makes it difficult to tell where most penguins are concentrated.</p>
 </section>
 </section>
-<section id="jitter-plot" class="level2">
-<h2 class="anchored" data-anchor-id="jitter-plot">Jitter Plot</h2>
+<section id="jitter-plot" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="jitter-plot"><span class="header-section-number">2.5</span> Jitter Plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">0</span>,</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.2</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Jitter"</span>,</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">0</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.2</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Jitter"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -358,23 +452,23 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-1" class="level3">
-<h3 class="anchored" data-anchor-id="observation-1">Observation</h3>
+<section id="observation-1" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="observation-1"><span class="header-section-number">2.5.1</span> Observation</h3>
 <p>The jitter plot makes the density of bill lengths easier to see compared with the raw point plot. Adelie penguins are mostly concentrated at shorter bill lengths, roughly around 35–43 mm. Gentoo and Chinstrap penguins generally have longer bill lengths, with many values around the mid-40s to low-50s. However, Gentoo and Chinstrap overlap quite a lot, so bill length alone does not clearly separate these two species. This pattern was harder to see in the raw point plot because many points overlapped along each species row.</p>
 </section>
 </section>
-<section id="beeswarm-plot" class="level2">
-<h2 class="anchored" data-anchor-id="beeswarm-plot">Beeswarm Plot</h2>
+<section id="beeswarm-plot" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="beeswarm-plot"><span class="header-section-number">2.6</span> Beeswarm Plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Beeswarm"</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_beeswarm</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Beeswarm"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Orientation inferred to be along y-axis; override with
 `position_beeswarm(orientation = 'x')`</code></pre>
@@ -387,54 +481,54 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-2" class="level3">
-<h3 class="anchored" data-anchor-id="observation-2">Observation</h3>
+<section id="observation-2" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="observation-2"><span class="header-section-number">2.6.1</span> Observation</h3>
 <p>The beeswarm plot shows the bill length distribution for each species while reducing overlap between points. Compared with the jitter plot, the points are arranged more systematically, so dense regions are easier to identify. Adelie penguins are mostly concentrated at shorter bill lengths, roughly around 35–43 mm. Gentoo penguins are mostly concentrated around the mid-40s to low-50s, while Chinstrap penguins are also mostly in the mid-40s to low-50s. This confirms that bill length separates Adelie from the other two species fairly well, but Gentoo and Chinstrap still overlap, so bill length alone cannot fully distinguish all three species.</p>
 </section>
 </section>
-<section id="jitter-versus-beeswarm" class="level2">
-<h2 class="anchored" data-anchor-id="jitter-versus-beeswarm">Jitter Versus Beeswarm</h2>
-<section id="advantage" class="level3">
-<h3 class="anchored" data-anchor-id="advantage">Advantage</h3>
+<section id="jitter-versus-beeswarm" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="jitter-versus-beeswarm"><span class="header-section-number">2.7</span> Jitter Versus Beeswarm</h2>
+<section id="advantage" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="advantage"><span class="header-section-number">2.7.1</span> Advantage</h3>
 <p>One advantage of the beeswarm plot is that it shows the density of bill lengths more clearly than the jitter plot. In the beeswarm plot, the points are arranged systematically, so it is easier to see where many penguins are concentrated, especially for Adelie around the shorter bill lengths and Gentoo around the mid-40s to low-50s.</p>
 </section>
-<section id="disadvantage" class="level3">
-<h3 class="anchored" data-anchor-id="disadvantage">Disadvantage</h3>
+<section id="disadvantage" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="disadvantage"><span class="header-section-number">2.7.2</span> Disadvantage</h3>
 <p>One disadvantage is that the beeswarm plot can look more visually packed and less familiar to readers than a jitter plot. The jitter plot is simpler to understand, but its random spreading makes the pattern look less organized.</p>
 </section>
 </section>
-<section id="faceted-bil-length-hitogram" class="level2">
-<h2 class="anchored" data-anchor-id="faceted-bil-length-hitogram">Faceted-Bil-Length Hitogram</h2>
+<section id="faceted-bil-length-histogram" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="faceted-bil-length-histogram"><span class="header-section-number">2.8</span> Faceted-Bil-Length Histogram</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>overall_mean_bill_len <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins_bill<span class="sc">$</span>bill_len)</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="dv">7</span>,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">xintercept =</span> overall_mean_bill_len,</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species) <span class="sc">+</span></span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length Distribution by Species"</span>,</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>overall_mean_bill_len <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins_bill<span class="sc">$</span>bill_len)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len)) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="dv">7</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.08</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">xintercept =</span> overall_mean_bill_len,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species) <span class="sc">+</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length Distribution by Species"</span>,</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -443,31 +537,31 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-3" class="level3">
-<h3 class="anchored" data-anchor-id="observation-3">Observation</h3>
+<section id="observation-3" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="observation-3"><span class="header-section-number">2.8.1</span> Observation</h3>
 <p>The faceted histogram shows that the overall bill-length distribution is made up of different species-specific distributions. Adelie penguins are mostly concentrated at shorter bill lengths, with most observations below the overall mean line. Chinstrap and Gentoo penguins generally have longer bill lengths, with many observations around the mid-40s to low-50s. The dashed vertical line shows the overall mean bill length across all penguins and provides a common reference point across the three facets. This helps explain why the ungrouped histogram was not unimodal: it combined species with different bill-length distributions.</p>
 </section>
 </section>
-<section id="violin-with-box-plot" class="level2">
-<h2 class="anchored" data-anchor-id="violin-with-box-plot">Violin-With-Box Plot</h2>
+<section id="violin-with-box-plot" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="violin-with-box-plot"><span class="header-section-number">2.9</span> Violin-With-Box Plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey85"</span>,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"grey40"</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"white"</span>,</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Violin and Box Plot"</span>,</span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> species)) <span class="sc">+</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey85"</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"grey40"</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"white"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">outlier.alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Length by Species Using Violin and Box Plot"</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Species"</span>,</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -476,43 +570,43 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-4" class="level3">
-<h3 class="anchored" data-anchor-id="observation-4">Observation</h3>
+<section id="observation-4" class="level3" data-number="2.9.1">
+<h3 data-number="2.9.1" class="anchored" data-anchor-id="observation-4"><span class="header-section-number">2.9.1</span> Observation</h3>
 <p>The violin-with-box plot shows that Adelie penguins have noticeably shorter bill lengths than Chinstrap and Gentoo penguins. The Adelie distribution is concentrated mostly around the high-30s to low-40s mm range, while Chinstrap and Gentoo are shifted further right, mostly around the mid-40s to low-50s mm range. The box plots show that the median bill length for Adelie is lower than the medians for Chinstrap and Gentoo. The violin shapes also show that Chinstrap and Gentoo have overlapping bill-length distributions, meaning bill length alone does not clearly separate those two species. Gentoo also has a long right tail with a very high bill-length value near 60 mm, suggesting a possible extreme value or outlier.</p>
 </section>
 </section>
-<section id="why-combine-violin-and-box-plots" class="level2">
-<h2 class="anchored" data-anchor-id="why-combine-violin-and-box-plots">Why Combine Violin and Box Plots</h2>
+<section id="why-combine-violin-and-box-plots" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="why-combine-violin-and-box-plots"><span class="header-section-number">2.10</span> Why Combine Violin and Box Plots</h2>
 <p>The violin plot shows the full distribution shape, making it easier to see where bill lengths are more concentrated for each species. However, it does not clearly show summary statistics such as the median and interquartile range. The box plot provides these summary statistics, but it hides the detailed distribution shape. Combining the two gives both the density pattern and the key numerical summaries in one visualization.</p>
 </section>
 </section>
-<section id="distribution-of-bill-depth" class="level1">
-<h1>Distribution of Bill Depth</h1>
-<section id="ungrouped-bill-depth-histogram" class="level2">
-<h2 class="anchored" data-anchor-id="ungrouped-bill-depth-histogram">Ungrouped Bill-Depth Histogram</h2>
+<section id="distribution-of-bill-depth" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Distribution of Bill Depth</h1>
+<section id="ungrouped-bill-depth-histogram" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="ungrouped-bill-depth-histogram"><span class="header-section-number">3.1</span> Ungrouped Bill-Depth Histogram</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_dep)) <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.5</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.03</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Depth"</span>,</span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_dep)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.03</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution of Penguin Bill Depth"</span>,</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -521,43 +615,43 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length" class="level3">
-<h3 class="anchored" data-anchor-id="how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length">How does the distribution of bill depth compare to that of bill length</h3>
+<section id="how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="how-does-the-distribution-of-bill-depth-compare-to-that-of-bill-length"><span class="header-section-number">3.1.1</span> How does the distribution of bill depth compare to that of bill length</h3>
 <p>The ungrouped bill-depth histogram shows that bill depth ranges roughly from about 13 mm to 21 mm. The distribution is not perfectly unimodal because there are several visible clusters, especially around 14–15 mm and 17–19 mm. Most penguins appear to have bill depths around 17–19 mm, where the tallest bars are located. Compared with the bill-length histogram, bill depth has a narrower numerical range, but it still shows signs that the data may contain different species groups. The rug marks along the bottom show the individual penguin observations and confirm that many values are concentrated in the middle of the range.</p>
 </section>
 </section>
-<section id="faceted-bill-depth-histogram" class="level2">
-<h2 class="anchored" data-anchor-id="faceted-bill-depth-histogram">Faceted Bill-Depth Histogram</h2>
+<section id="faceted-bill-depth-histogram" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="faceted-bill-depth-histogram"><span class="header-section-number">3.2</span> Faceted Bill-Depth Histogram</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>overall_mean_bill_dep <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins_bill<span class="sc">$</span>bill_dep)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_dep)) <span class="sc">+</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.5</span>,</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.03</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">xintercept =</span> overall_mean_bill_dep,</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species) <span class="sc">+</span></span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth Distribution by Species"</span>,</span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>overall_mean_bill_dep <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins_bill<span class="sc">$</span>bill_dep)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_dep)) <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.5</span>,</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">boundary =</span> <span class="dv">0</span>,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"grey75"</span>,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sides =</span> <span class="st">"b"</span>,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.18</span>,</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="fl">0.03</span>, <span class="at">height =</span> <span class="dv">0</span>)</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">xintercept =</span> overall_mean_bill_dep,</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species) <span class="sc">+</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth Distribution by Species"</span>,</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -566,25 +660,25 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="how-does-the-distribution-of-bill-depth-differ-across-species" class="level3">
-<h3 class="anchored" data-anchor-id="how-does-the-distribution-of-bill-depth-differ-across-species">How does the distribution of bill depth differ across species?</h3>
+<section id="how-does-the-distribution-of-bill-depth-differ-across-species" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="how-does-the-distribution-of-bill-depth-differ-across-species"><span class="header-section-number">3.2.1</span> How does the distribution of bill depth differ across species?</h3>
 <p>The faceted histogram shows that bill depth differs clearly across species. Gentoo penguins have the shallowest bill depths, with most values concentrated below the overall mean line and mostly around 14–16 mm. Adelie penguins have deeper bills, with most values around 17–19.5 mm and many observations above the overall mean. Chinstrap penguins also have relatively deep bills, mostly around 17–20 mm, and they overlap more with Adelie than with Gentoo. This suggests that bill depth is especially useful for separating Gentoo from Adelie and Chinstrap, but it does not separate Adelie and Chinstrap as clearly.</p>
 </section>
 </section>
-<section id="comparison-of-bill-length-and-bill-depth-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="comparison-of-bill-length-and-bill-depth-distributions">Comparison of Bill-Length and Bill-Depth Distributions</h2>
+<section id="comparison-of-bill-length-and-bill-depth-distributions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="comparison-of-bill-length-and-bill-depth-distributions"><span class="header-section-number">3.3</span> Comparison of Bill-Length and Bill-Depth Distributions</h2>
 <p>Bill length and bill depth separate the penguin species in different ways. From the bill-length visualizations in Section 3.2(e–j), Adelie penguins are the easiest to separate because they generally have shorter bill lengths than Chinstrap and Gentoo penguins. However, Chinstrap and Gentoo overlap quite a lot in bill length, so bill length alone does not clearly separate those two species.</p>
 <p>From the bill-depth histogram in Section 3.3(b), Gentoo penguins are the easiest to separate because they generally have shallower bill depths than Adelie and Chinstrap penguins. Adelie and Chinstrap have deeper bill depths and overlap more with each other. Therefore, the two measurements do not separate exactly the same species: bill length mainly separates Adelie from the others, while bill depth mainly separates Gentoo from the others.</p>
 </section>
-<section id="verifier-task-2" class="level2">
-<h2 class="anchored" data-anchor-id="verifier-task-2">Verifier Task</h2>
+<section id="verifier-task-2" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="verifier-task-2"><span class="header-section-number">3.4</span> Verifier Task</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_bill_len =</span> <span class="fu">mean</span>(bill_len),</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_bill_dep =</span> <span class="fu">mean</span>(bill_dep),</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_bill_len =</span> <span class="fu">mean</span>(bill_len),</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_bill_dep =</span> <span class="fu">mean</span>(bill_dep),</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    species mean_bill_len mean_bill_dep
 1    Adelie      38.79139      18.34636
@@ -599,21 +693,21 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </ul>
 </section>
 </section>
-<section id="birate-view-bill-depth-versus-bill-length" class="level1">
-<h1>Birate View: Bill Depth Versus Bill Length</h1>
-<section id="ungrouped-scatter-plot" class="level2">
-<h2 class="anchored" data-anchor-id="ungrouped-scatter-plot">Ungrouped Scatter Plot</h2>
+<section id="birate-view-bill-depth-versus-bill-length" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Birate View: Bill Depth Versus Bill Length</h1>
+<section id="ungrouped-scatter-plot" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ungrouped-scatter-plot"><span class="header-section-number">4.1</span> Ungrouped Scatter Plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth versus Bill Length"</span>,</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth versus Bill Length"</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -625,50 +719,50 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-5" class="level3">
-<h3 class="anchored" data-anchor-id="observation-5">Observation</h3>
+<section id="observation-5" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="observation-5"><span class="header-section-number">4.1.1</span> Observation</h3>
 <p>The ungrouped scatter plot shows the relationship between bill length and bill depth for all penguins combined. Each point represents one penguin, and the blue regression line shows the pooled linear trend across all species. The line slopes downward, suggesting that when species is ignored, penguins with longer bill lengths appear to have lower bill depths. However, the points seem to form several clusters, so the pooled trend may be hiding species-level patterns.</p>
 </section>
 </section>
-<section id="interpretation-of-the-pooled-hrend" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation-of-the-pooled-hrend">Interpretation Of The Pooled Hrend</h2>
+<section id="interpretation-of-the-pooled-hrend" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="interpretation-of-the-pooled-hrend"><span class="header-section-number">4.2</span> Interpretation Of The Pooled Hrend</h2>
 <p>If species information were unavailable, a reader would infer a negative relationship between bill length and bill depth. In other words, the pooled trend suggests that penguins with longer bills tend to have shallower bills. The confidence band around the regression line is fairly narrow and does not suggest a flat relationship, so the pooled trend appears statistically meaningful. However, this interpretation may be misleading because the plot combines different species into one group.</p>
 </section>
-<section id="exact-overplotting" class="level2">
-<h2 class="anchored" data-anchor-id="exact-overplotting">Exact Overplotting</h2>
+<section id="exact-overplotting" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="exact-overplotting"><span class="header-section-number">4.3</span> Exact Overplotting</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>overlap_counts <span class="ot">&lt;-</span> penguins_bill <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(bill_len, bill_dep)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>hidden_points <span class="ot">&lt;-</span> overlap_counts <span class="sc">|&gt;</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">hidden =</span> <span class="fu">sum</span>(n <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(hidden)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>max_stack <span class="ot">&lt;-</span> overlap_counts <span class="sc">|&gt;</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">max_stack =</span> <span class="fu">max</span>(n)) <span class="sc">|&gt;</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(max_stack)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>hidden_points</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>overlap_counts <span class="ot">&lt;-</span> penguins_bill <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(bill_len, bill_dep)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>hidden_points <span class="ot">&lt;-</span> overlap_counts <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">hidden =</span> <span class="fu">sum</span>(n <span class="sc">-</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(hidden)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>max_stack <span class="ot">&lt;-</span> overlap_counts <span class="sc">|&gt;</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">max_stack =</span> <span class="fu">max</span>(n)) <span class="sc">|&gt;</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(max_stack)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>hidden_points</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>max_stack</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>max_stack</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<section id="discussion-1" class="level3">
-<h3 class="anchored" data-anchor-id="discussion-1">Discussion</h3>
+<section id="discussion-1" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="discussion-1"><span class="header-section-number">4.3.1</span> Discussion</h3>
 <p>There are 4 points hidden by exact overlap. The maximum number of penguins stacked at a single (bill_len, bill_dep) coordinate is 2. This means exact duplicate coordinates exist, but the amount of exact overlap is quite small compared with the full cleaned dataset.</p>
 <p>Exact overlap is not the only cause of overplotting. Even if two points do not have exactly the same bill length and bill depth, they can still be very close together visually, especially in dense regions of the scatter plot. This can make the plot look crowded and can make it difficult to judge where most observations are concentrated.</p>
 </section>
-<section id="verifier-task-3" class="level3">
-<h3 class="anchored" data-anchor-id="verifier-task-3">Verifier Task</h3>
+<section id="verifier-task-3" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="verifier-task-3"><span class="header-section-number">4.3.2</span> Verifier Task</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>visible_points <span class="ot">&lt;-</span> penguins_bill <span class="sc">|&gt;</span> <span class="fu">distinct</span>(bill_len, bill_dep) <span class="sc">|&gt;</span> <span class="fu">nrow</span>()</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>hidden_distinct <span class="ot">&lt;-</span> <span class="fu">nrow</span>(penguins_bill) <span class="sc">-</span> visible_points</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>hidden_distinct</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>visible_points <span class="ot">&lt;-</span> penguins_bill <span class="sc">|&gt;</span> <span class="fu">distinct</span>(bill_len, bill_dep) <span class="sc">|&gt;</span> <span class="fu">nrow</span>()</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>hidden_distinct <span class="ot">&lt;-</span> <span class="fu">nrow</span>(penguins_bill) <span class="sc">-</span> visible_points</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>hidden_distinct</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -676,25 +770,25 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <p>The verifier calculation using distinct() also gives 4 hidden points, confirming the result from count().</p>
 </section>
 </section>
-<section id="mitigation-of-overplotting" class="level2">
-<h2 class="anchored" data-anchor-id="mitigation-of-overplotting">Mitigation Of Overplotting</h2>
+<section id="mitigation-of-overplotting" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="mitigation-of-overplotting"><span class="header-section-number">4.4</span> Mitigation Of Overplotting</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.15</span>,</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Jittered Scatter Plot of Bill Depth versus Bill Length"</span>,</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.15</span>,</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.5</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Jittered Scatter Plot of Bill Depth versus Bill Length"</span>,</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -707,18 +801,18 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Count Plot of Bill Depth versus Bill Length"</span>,</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Number of penguins"</span>,</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_count</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_area</span>(<span class="at">max_size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Count Plot of Bill Depth versus Bill Length"</span>,</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Number of penguins"</span>,</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -731,30 +825,30 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </section>
-<section id="assessment-of-scatter-plot-variants" class="level2">
-<h2 class="anchored" data-anchor-id="assessment-of-scatter-plot-variants">Assessment of Scatter Plot Variants</h2>
+<section id="assessment-of-scatter-plot-variants" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="assessment-of-scatter-plot-variants"><span class="header-section-number">4.5</span> Assessment of Scatter Plot Variants</h2>
 <p>We would submit the jittered scatter plot to a journal referee. The exact-overlap check showed that only 4 points were hidden by identical coordinates, with a maximum stack size of 2, so exact duplicate points are not a serious issue in this dataset. The count-symbol plot shows exact overlaps, but the large circles make the plot look more crowded and harder to interpret. The jittered scatter plot makes dense regions easier to see while still preserving the overall negative pooled trend, so it is the clearer option for communicating the pattern.</p>
 </section>
-<section id="grouped-scatter-plot" class="level2">
-<h2 class="anchored" data-anchor-id="grouped-scatter-plot">Grouped Scatter Plot</h2>
+<section id="grouped-scatter-plot" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="grouped-scatter-plot"><span class="header-section-number">4.6</span> Grouped Scatter Plot</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep, <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.15</span>,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.6</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth versus Bill Length by Species"</span>,</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">3107</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(penguins_bill, <span class="fu">aes</span>(<span class="at">x =</span> bill_len, <span class="at">y =</span> bill_dep, <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="fl">0.15</span>,</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.6</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Bill Depth versus Bill Length by Species"</span>,</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Data source: Gorman et al. (2014)"</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -766,23 +860,23 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 </div>
-<section id="observation-6" class="level3">
-<h3 class="anchored" data-anchor-id="observation-6">Observation</h3>
+<section id="observation-6" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="observation-6"><span class="header-section-number">4.6.1</span> Observation</h3>
 <p>Mapping species to colour reveals that the penguins form three separate species clusters. Adelie penguins generally have shorter bill lengths and deeper bills, Gentoo penguins have shallower bill depths, and Chinstrap penguins tend to have longer and deeper bills. The regression lines for all three species slope upward, showing a positive relationship between bill length and bill depth within each species. This pattern was hidden in the ungrouped scatter plot, where the pooled regression line sloped downward. The apparent reversal between the pooled trend and the species-specific trends is an example of Simpson’s paradox.</p>
 </section>
-<section id="verifier-task-4" class="level3">
-<h3 class="anchored" data-anchor-id="verifier-task-4">Verifier Task</h3>
+<section id="verifier-task-4" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="verifier-task-4"><span class="header-section-number">4.6.2</span> Verifier Task</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>overall_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(penguins_bill<span class="sc">$</span>bill_len, penguins_bill<span class="sc">$</span>bill_dep)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(overall_cor, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>overall_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(penguins_bill<span class="sc">$</span>bill_len, penguins_bill<span class="sc">$</span>bill_dep)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(overall_cor, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.235</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">r =</span> <span class="fu">round</span>(<span class="fu">cor</span>(bill_len, bill_dep), <span class="dv">3</span>),</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>penguins_bill <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">r =</span> <span class="fu">round</span>(<span class="fu">cor</span>(bill_len, bill_dep), <span class="dv">3</span>),</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> species</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    species     r
 1    Adelie 0.391
@@ -793,6 +887,29 @@ $ year        &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 <p>The overall correlation is&nbsp;-0.235&nbsp;— negative, matching the downward-sloping pooled line. Within each species every correlation is&nbsp;positive, matching the upward-sloping per-species lines in the grouped plot. This confirms Simpson’s Paradox in the numbers: the sign of the relationship literally flips depending on whether you account for species.</p>
 </section>
 </section>
+</section>
+<section id="summarize-the-insights-gained" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Summarize The Insights Gained</h1>
+<p>Bill length and bill depth can help distinguish the three Pygoscelis penguin species, especially when both measurements are considered together. The bill-length plots show that Adelie penguins generally have shorter bills than Chinstrap and Gentoo penguins. However, bill length alone does not fully separate Chinstrap and Gentoo because their distributions overlap. The bill-depth plots show a different pattern: Gentoo penguins generally have shallower bills than Adelie and Chinstrap penguins. This means bill length and bill depth separate different species and provide complementary information. When species is ignored in the ungrouped scatter plot, the pooled regression line suggests a negative relationship between bill length and bill depth. However, the grouped scatter plot shows positive relationships within each species, so the misleading reversal is an example of Simpson’s paradox.</p>
+<section id="verifier-task-5" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="verifier-task-5"><span class="header-section-number">5.1</span> Verifier Task</h2>
+<p>Our findings are consistent with what Horst, Hill and Gorman (2022) report. They introduced the Palmer Penguins dataset specifically as a teaching example that illustrates Simpson’s Paradox, and they highlight that the negative pooled correlation between bill length and bill depth (~−0.23) reverses to a positive correlation within each species — exactly what we observed. They also note that the three species form reasonably distinct clusters in the two-dimensional bill space, which matches our conclusion that both measurements are needed together to approach full separation.</p>
+</section>
+</section>
+<section id="reflection-on-ai-usage" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Reflection on AI Usage</h1>
+<p>Our team used Gemini as the single chat based AI tool for this lab. We used it only through the chat interface and did not allow it to directly edit project files, run the final submission, or generate undocumented side conversations. The AI interaction was recorded in a separate verbatim log file named <code>ai_log.txt</code>. One of our AI response gave us a reasoning that was overcomplicated, which resulted in the team spending far longer on the question to dicuss on it.</p>
+</section>
+<section id="team-roles-and-contributions" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Team Roles and Contributions</h1>
+<ul>
+<li><strong>Coder(Travis):</strong> Wrote and maintained the main QMD file, ensured that the code chunks ran in order, and checked that the QMD rendered successfully.</li>
+<li><strong>Navigator(Weehan):</strong> Read the task requirements and guided the team through the required sections in order.</li>
+<li><strong>Verifier(Jie Yung):</strong> Checked the cleaned data, missing values, joins, row order, and per-capita calculation using independent checks.</li>
+<li><strong>Constructive Critic(Daniel):</strong> Reviewed the QMD for clarity, structure, formatting, and whether the submission matched the lab requirements.</li>
+<li><strong>AI Liaison(Marc):</strong> Interacted with the AI tool, recorded the AI log, and checked whether AI suggestions were useful or needed correction.</li>
+<li><strong>Reporter(Nico):</strong> Wrote and improved the explanatory text for the final QMD.</li>
+</ul>
 </section>
 
 </main>
